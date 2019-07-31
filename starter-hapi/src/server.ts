@@ -30,6 +30,14 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/favicon.ico',
+  handler: (request, h) => {
+    return h.file('./public/favicon.ico')
+  }
+});
+
 server.events.on('response', function (request) {
   Object.keys(request.headers).forEach(key => {
     server.log(key + ': ' + request.headers[key]);
